@@ -244,4 +244,104 @@ body {
   &-submit {
     @include button;
   }
+
+  &-results {
+    @include flex;
+    column-gap: 15px;
+    opacity: 0;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  &-result {
+    &__equals {
+      background: #2b2440;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      @include flex;
+    }
+
+    &__item {
+      background: #1e192d;
+      border-radius: 12px;
+      padding: 12px;
+      align-items: center;
+      display: grid;
+      column-gap: 8px;
+      width: max-content;
+      grid-template-columns: 32px 1fr;
+      grid-template-areas:
+        "icon titles"
+        "icon amount";
+
+      &.from {
+        .icon {
+          background: rgba(252, 87, 130, 1);
+
+          box-shadow: 0px 0px 0px 2px rgba(252, 87, 130, 0.25);
+          border-radius: 50%;
+        }
+      }
+
+      &.to {
+        .icon {
+          background: rgba(31, 196, 175, 1);
+          box-shadow: 0px 0px 0px 2px rgba(31, 196, 175, 0.25);
+          border-radius: 50%;
+        }
+      }
+
+      .icon {
+        @include flex;
+        grid-area: icon;
+        width: 30px;
+        height: 30px;
+      }
+
+      &-titles {
+        grid-area: titles;
+        @include flex(start);
+        column-gap: 10px;
+      }
+
+      &-title {
+        font-weight: 500;
+        font-size: 14px;
+        color: $textcolor;
+        line-height: 17px;
+      }
+
+      &-full {
+        font-weight: 400;
+        font-size: 12px;
+        color: rgba(245, 245, 245, 0.5);
+        line-height: 15px;
+      }
+
+      &-value {
+        grid-area: amount;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 23px;
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+.rate {
+  &-information {
+    @include flex(space-between);
+    margin-top: 16px;
+    font-weight: 400;
+    line-height: 15px;
+    color: rgba(245, 245, 245, 0.5);
+  }
+
+  &-conversion {
+    color: $textcolor;
+  }
 }
