@@ -1,0 +1,103 @@
+<main>
+  <div class="container">
+    <h1>Check live foreign currency exchange rates</h1>
+
+    <div class="main">
+      <div class="wrapper">
+        <div class="tabs">
+          <div class="tab active">
+            <div class="tab-icon">
+              <img src="../images/src/money-svgrepo-com 1convert.png" alt="" />
+            </div>
+            <div class="tab-title">Convert</div>
+          </div>
+          <div class="tab">
+            <div class="tab-icon">
+              <img src="../images/src/single-img.png" alt="" />
+            </div>
+            <div class="tab-title">Single</div>
+          </div>
+        </div>
+
+        <div class="content">
+          <form>
+            <div class="form-inputs">
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input
+                  type="number"
+                  name="amount"
+                  id="amount"
+                  placeholder="1.00"
+                />
+              </div>
+
+              <div class="form-selects">
+                <div class="form-select">
+                  <label for="from">From</label>
+                  <select class="select" name="from" id="from">
+                    <option value="" disabled selected hidden>
+                      Choose currency
+                    </option>
+                  </select>
+                </div>
+
+
+                <div class="form-select__icon switch-currencies">
+                  <img
+                    src="../images/src/arrows-svgrepo-com 1arrows.png"
+                    alt=""
+                  />
+                </div>
+
+
+                <div class="form-select">
+                    <label for="to">To</label>
+                    <select class="select" name="to" id="to">
+                      <option value="" disabled selected hidden>
+                        Choose currency
+                      </option>
+                    </select>
+                  </div>
+
+
+
+
+
+              </div>
+            </div>
+
+
+            <div class="form-info">
+                <div class="loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <div class="form-results">
+                    <div class="form-result__item from" id="resultFrom"></div>
+                    <div class="form-result__item-icon">
+                        <img src="../images/src/Vectorto-arrow.png" alt="">
+                    </div>
+
+                    <div class="form-result__item-titles">
+                        <div class="form-result__item-title">USD</div>
+                        <div class="form-result__item-full">American dollar</div>
+
+                    </div>
+
+                    <div class="form-result__item-value">1.00</div>
+
+
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- <input type="number" /> -->

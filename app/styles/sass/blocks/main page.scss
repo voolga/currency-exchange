@@ -1,0 +1,39 @@
+.heading {
+  font-weight: 700;
+  margin: math.div($gutter, 2) 0 math.div($gutter, 1.5);
+  font-size: 27px;
+}
+
+input,
+button {
+  background: none;
+  outline: none;
+  border: none;
+  color: $textcolor;
+  font-family: "inter", sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+h1 {
+  font-family: "inter";
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+body {
+  background: #1e192d;
+}
+
+
