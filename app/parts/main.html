@@ -7,13 +7,13 @@
         <div class="tabs">
           <div class="tab active">
             <div class="tab-icon">
-              <img src="../images/src/money-svgrepo-com 1convert.png" alt="" />
+              <img class="tab-img" src="../images/src/money-svgrepo-com 1convert.png" alt="" />
             </div>
             <div class="tab-title">Convert</div>
           </div>
           <div class="tab">
             <div class="tab-icon">
-              <img src="../images/src/single-img.png" alt="" />
+              <img class="tab-img" src="../images/src/single-img.png" alt="" />
             </div>
             <div class="tab-title">Single</div>
           </div>
@@ -121,7 +121,7 @@
                 <div class="currency-item currency-current">
                   <div class="currency-titles">
                     <div class="currency-title">USD</div>
-                    <div class="currency-full-name">American dollar</div>
+                    <div class="currency-full">American dollar</div>
                   </div>
 
                   <div class="currency-amount">1.00</div>
@@ -139,7 +139,7 @@
                 <div class="currency-item">
                   <div class="currency-titles">
                     <div class="currency-title">USD</div>
-                    <div class="currency-full-name">American dollar</div>
+                    <div class="currency-full">American dollar</div>
                   </div>
 
                   <div class="currency-amount">2.00</div>
@@ -154,12 +154,12 @@
           </div>
 
           <div class="currency-add">
-            <button class="currency-add_button">Add currency</button>
+            <button class="currency-add__button">Add currency</button>
+            <select class="select" id="addCurrencySelect">
+              <option value="" disabled selected hidden>Choose currency</option>
+            </select>
           </div>
 
-          <select class="select" id="addCurrencySelect">
-            <option value="" disabled selected hidden>Choose currency</option>
-          </select>
         </div>
       </div>
     </div>

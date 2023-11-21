@@ -17,7 +17,7 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0; 
 }
 
 input[type="number"] {
@@ -49,7 +49,6 @@ body {
   font-weight: 600;
   line-height: 19px;
   color: $textcolor;
-  // border: 2px solid;
   border: 2px solid rgb(140, 11, 101);
   padding: 14px;
   font-size: 16px;
@@ -169,6 +168,12 @@ body {
   &-icon {
     width: 18px;
     height: 18px;
+
+  }
+
+  &-img {
+    display: block;
+    margin: 0 auto;
   }
 
   &:hover {
@@ -339,6 +344,7 @@ body {
     margin-top: 16px;
     font-weight: 400;
     line-height: 15px;
+    font-size: 12px;
     color: rgba(245, 245, 245, 0.5);
   }
 
@@ -347,13 +353,155 @@ body {
   }
 }
 
-
 .select {
   cursor: pointer;
   min-width: 240px;
   @include input;
-
 }
 
+.currency {
+  &-wrapper {
+    margin-top: 40px;
+  }
+
+  &-item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    border-radius: 12px;
+    padding: 14px 20px;
+    border: 2px solid #fa5897;
+    background: none;
+  }
+
+  &-titles {
+    @include flex(start);
+    column-gap: 19px;
+  }
+
+  &-title {
+    font-weight: 600;
+    line-height: 19px;
+    color: $textcolor;
+    min-width: 40px;
+  }
+
+  &-full {
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(245, 245, 245, 0.5);
+    line-height: 15px;
+  }
+
+  &-amount {
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &-single {
+    position: relative;
+
+    .currency-item {
+      height: 69px;
+    }
+
+    .select {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      right: 10px;
+      width: calc(100% - 20px);
+      max-width: 290px;
+    }
+
+    &.active {
+      .currency-button {
+        display: none;
+      }
+
+      .select {
+        display: block;
+      }
+    }
+  }
+
+  &-action {
+    text-align: right;
+  }
+
+  &-current {
+    border: none;
+    background: rgba(135, 159, 255, 1);
+
+    .currency {
+      &-full {
+        color: #2b2440;
+      }
+      &-button {
+        border-color: $textcolor;
+        color: $textcolor;
+        transition: background-color 0.25s;
 
 
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+
+  &-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+
+  &-button {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    width: max-content;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: border 0.25s, color 0.25s;
+    text-transform: capitalize;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+  }
+
+  &-add {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+
+    &__button {
+      @include button;
+    }
+
+    .select {
+      display: none;
+      padding: 11px 14px;
+    }
+
+    &.active {
+      .select {
+        display: block;
+      }
+
+      .currency-add__button {
+        display: none;
+      }
+    }
+  }
+}
