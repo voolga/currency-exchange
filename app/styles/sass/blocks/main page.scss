@@ -52,6 +52,7 @@ body {
   // border: 2px solid;
   border: 2px solid rgb(140, 11, 101);
   padding: 14px;
+  font-size: 16px;
 }
 
 @mixin button {
@@ -345,3 +346,14 @@ body {
     color: $textcolor;
   }
 }
+
+
+.select {
+  cursor: pointer;
+  min-width: 240px;
+  @include input;
+
+}
+
+
+
