@@ -1,7 +1,8 @@
-.heading {
-  font-weight: 700;
-  margin: math.div($gutter, 2) 0 math.div($gutter, 1.5);
-  font-size: 27px;
+* {
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 input,
@@ -10,30 +11,237 @@ button {
   outline: none;
   border: none;
   color: $textcolor;
-  font-family: "inter", sans-serif;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 h1 {
-  font-family: "inter";
   font-size: 22px;
   font-weight: 700;
-  text-align: left;
-  color: #FFFFFF;
+  text-align: center;
+  width: 100%;
+  color: $textcolor;
+  line-height: 27px;
 }
 
 body {
   background: #1e192d;
 }
 
+@mixin flex($justify: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
 
+@mixin input {
+  border-radius: 12px;
+  background: rgba(43, 36, 64, 1);
+  font-weight: 600;
+  line-height: 19px;
+  color: $textcolor;
+  // border: 2px solid;
+  border: 2px solid rgb(140, 11, 101);
+  padding: 14px;
+}
+
+@mixin button {
+  background: linear-gradient(97.46deg, #ff585f 3.28%, #fa5897 95.35%);
+  border-radius: 12px;
+  font-size: 17px;
+  line-height: 21px;
+  padding: 12px 30px;
+  cursor: pointer;
+  // transition: ;
+}
+
+.container {
+  width: 1024px;
+  margin: 0 auto;
+  min-height: 100vh;
+  @include flex();
+  flex-direction: column;
+  row-gap: 28px;
+}
+
+.main {
+  width: 100%;
+  position: relative;
+
+  &:after,
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    width: 220px;
+    height: 220px;
+    bottom: 0;
+    left: -180px;
+    background: url(../images/src/image1_btc.png) no-repeat center/contain;
+    z-index: -1;
+  }
+
+  &::after {
+    width: 140px;
+    height: 140px;
+    top: -72px;
+    right: 0;
+    background: url(../images/src/image_2.png) no-repeat center/contain;
+    z-index: 1;
+  }
+}
+
+.wrapper {
+  background: linear-gradient(180deg, #271d35 0%, rgba(39, 29, 53, 0.2) 100%);
+  border-radius: 12px;
+  opacity: 80%;
+  padding: 9px 45px 37px 45px;
+  width: 100%;
+  min-height: 314px;
+}
+
+.tabs {
+  @include flex();
+  position: relative;
+
+  &::before {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      rgba(217, 217, 217, 0) 12.5%,
+      #ffffff 51.57%,
+      rgba(255, 255, 255, 0) 86.98%
+    );
+    opacity: 0.2;
+    width: 70%;
+    height: 2px;
+    min-width: 660px;
+    content: "";
+  }
+}
+
+.tab {
+  @include flex;
+  cursor: pointer;
+  column-gap: 10px;
+  padding: 15px 10px;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+  position: relative;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+
+  &::after {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 88, 95, 0) 0%,
+      #fa5897 51.57%,
+      rgba(255, 88, 95, 0) 100%
+    );
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 0;
+    height: 2px;
+    content: "";
+    transition: width 0.25s ease;
+    bottom: 0;
+  }
+
+  &-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.active {
+    opacity: 1;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.form {
+  margin-top: 40px;
+
+  label {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #b7b7b7;
+    margin-bottom: 10px;
+    padding-left: 16px;
+  }
+
+  &-inputs {
+    @include flex;
+    gap: 25px;
+  }
+
+  &-group {
+    width: 320px;
+
+    input {
+      width: 100%;
+      @include input;
+    }
+  }
+
+  &-selects {
+    @include flex;
+    column-gap: 25px;
+    align-items: flex-end;
+  }
+
+  &-select {
+    flex-grow: 1;
+
+    &__icon {
+      @include flex;
+      background: #2b2440;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.25s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-info {
+    @include flex(space-between);
+    position: relative;
+    margin-top: 25px;
+  }
+
+  &-submit {
+    @include button;
+  }
+}
