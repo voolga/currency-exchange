@@ -275,7 +275,7 @@ body {
       display: grid;
       column-gap: 8px;
       width: max-content;
-      grid-template-columns: 32px 1fr;
+      // grid-template-columns: 32px 1fr;
       grid-template-areas:
         "icon titles"
         "icon amount";
@@ -500,4 +500,28 @@ body {
       }
     }
   }
+}
+
+
+.content {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(43, 36, 64, 1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1fc4af;
+  border-radius: 20px;
+  border: none;
 }
